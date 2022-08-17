@@ -1,4 +1,6 @@
-import { useForm, useToggle, upperFirst } from "@mantine/hooks";
+import { useToggle, upperFirst } from "@mantine/hooks";
+import { useForm } from '@mantine/form';
+
 import {
   TextInput,
   PasswordInput,
@@ -20,9 +22,10 @@ import { useContext } from "react";
 import { GoogleButton } from "../../components/SocialButtons/SocialButtons";
 import { useState } from "react";
 import { HeaderMenuColored } from "../HeaderMenuColored";
+import { Demo } from "../../components/Demo";
 
 export function AuthenticationForm(props: PaperProps) {
-  const [type, toggle] = useToggle("Entrar", ["Entrar", "Criar conta"]);
+  const [type, toggle] = useToggle(['login', 'register']);
 
   const form = useForm({
     initialValues: {
@@ -30,9 +33,9 @@ export function AuthenticationForm(props: PaperProps) {
       password: "",
     },
 
-    validationRules: {
-      email: (val) => /^\S+@\S+$/.test(val),
-      password: (val) => val.length >= 6,
+    validate: {
+      email: (val) => (/^\S+@\S+$/.test(val) ? null : 'Invalid email'),
+      password: (val) => (val.length <= 6 ? 'Password should include at least 6 characters' : null),
     },
   });
 
@@ -52,8 +55,11 @@ export function AuthenticationForm(props: PaperProps) {
   return (
     <>
       {/* <HeaderMenuColored  links={links}/> */}
+
       <Container size={450} my={100}>
         <Paper withBorder shadow="md" p={30} mt={30} radius="md" {...props}>
+
+
           <LightDarkButton />
 
           <form onSubmit={handleSubtmit}>
@@ -120,6 +126,7 @@ export function AuthenticationForm(props: PaperProps) {
               )}
             </Group>
           </form>
+          
         </Paper>
       </Container>
     </>

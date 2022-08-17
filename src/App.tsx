@@ -5,7 +5,6 @@ import {
 } from "@mantine/core";
 
 import { useHotkeys, useLocalStorage } from "@mantine/hooks";
-import { AuthenticationForm } from "./pages/AuthenticationForm";
 
 import { BrowserRouter } from "react-router-dom";
 import { Router } from "./Router";

@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { Demo } from "./components/Demo";
 import { AuthenticationForm } from "./pages/AuthenticationForm";
 import { HeaderMenuColored } from "./pages/HeaderMenuColored";
 
@@ -26,6 +27,8 @@ export function Router() {
     <Routes>
       <Route path="/" element={<AuthenticationForm />} />
       <Route path="/ola" element={<HeaderMenuColored user={user} tabs={tabs} />} />
+      <Route path="/demo" element={<Demo  />} />
+
     </Routes>
   );
 }
