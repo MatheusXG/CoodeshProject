@@ -1,5 +1,5 @@
 import { useToggle, upperFirst } from "@mantine/hooks";
-import { useForm } from '@mantine/form';
+import { useForm } from "@mantine/form";
 
 import {
   TextInput,
@@ -17,15 +17,16 @@ import {
 import { LightDarkButton } from "../../components/LightDarkButton";
 
 import { AuthContext } from "../../contexts/AuthContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { GoogleButton } from "../../components/SocialButtons/SocialButtons";
-import { useState } from "react";
-import { HeaderMenuColored } from "../HeaderMenuColored";
-import { Demo } from "../../components/Demo";
+
+import { Link, useNavigate } from "react-router-dom";
+
+
 
 export function AuthenticationForm(props: PaperProps) {
-  const [type, toggle] = useToggle(['login', 'register']);
+  const [type, toggle] = useToggle(["Login", "Register"]);
 
   const form = useForm({
     initialValues: {
@@ -34,8 +35,11 @@ export function AuthenticationForm(props: PaperProps) {
     },
 
     validate: {
-      email: (val) => (/^\S+@\S+$/.test(val) ? null : 'Invalid email'),
-      password: (val) => (val.length <= 6 ? 'Password should include at least 6 characters' : null),
+      email: (val) => (/^\S+@\S+$/.test(val) ? null : "Invalid email"),
+      password: (val) =>
+        val.length <= 6
+          ? "Password should include at least 6 characters"
+          : null,
     },
   });
 
@@ -45,24 +49,29 @@ export function AuthenticationForm(props: PaperProps) {
   };
 
   const { SignUp, isLoading } = useContext(AuthContext);
+  let navigate = useNavigate();
 
-  function handleSubtmit(e: any) {
-    e.preventDefault();
-    SignUp(dataSignUp);
+
+  function handleSubmit() {
+    try {
+      { type === "Register" && SignUp(dataSignUp) }
+
+    } catch (error) {
+      
+    }
+
+    
   }
-
 
   return (
     <>
-      {/* <HeaderMenuColored  links={links}/> */}
-
       <Container size={450} my={100}>
+      
+
         <Paper withBorder shadow="md" p={30} mt={30} radius="md" {...props}>
-
-
           <LightDarkButton />
 
-          <form onSubmit={handleSubtmit}>
+          <form onSubmit={form.onSubmit(handleSubmit)}>
             <Group grow mb="md" mt="md">
               <GoogleButton radius="md">Google</GoogleButton>
             </Group>
@@ -84,6 +93,7 @@ export function AuthenticationForm(props: PaperProps) {
             />
 
             <PasswordInput
+              mt={15}
               required
               label="Password"
               value={form.values.password}
@@ -104,13 +114,18 @@ export function AuthenticationForm(props: PaperProps) {
                 onClick={() => toggle()}
                 size="xs"
               >
-                {type === "Criar conta"
+                {type === "Register"
                   ? "Já possui uma conta? Entrar"
                   : "Não possui uma conta? Registrar"}
               </Anchor>
 
-              {type === "Criar conta" ? (
-                <Button type="submit" color="indigo" fullWidth>
+              {type === "Register" ? (
+                <Button
+                  type="submit"
+                  color="indigo"
+                  fullWidth
+                  loading={isLoading}
+                >
                   {upperFirst(type)}
                 </Button>
               ) : (
@@ -126,7 +141,6 @@ export function AuthenticationForm(props: PaperProps) {
               )}
             </Group>
           </form>
-          
         </Paper>
       </Container>
     </>

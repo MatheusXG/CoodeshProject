@@ -3,11 +3,11 @@ import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDMNDph_rWDTpVIgNBRmDvg8yv_RU8ZllQ",
-  authDomain: "desafiodashgo.firebaseapp.com",
-  projectId: "desafiodashgo",
-  storageBucket: "desafiodashgo.appspot.com",
-  messagingSenderId: "196078950730",
-  appId: "1:196078950730:web:939457397b490b215109b3",
+  authDomain: import.meta.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
