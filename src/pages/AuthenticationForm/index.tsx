@@ -55,6 +55,7 @@ export function AuthenticationForm(props: PaperProps) {
   function handleSubmit() {
     try {
       { type === "Register" && SignUp(dataSignUp) }
+      navigate("/");
 
     } catch (error) {
       
