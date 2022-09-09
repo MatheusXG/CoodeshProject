@@ -48,7 +48,7 @@ export function LightDarkButton() {
   const Icon = colorScheme === "dark" ? Sun : Moon;
 
   return (
-    <Container size={1000} mt={30}>
+    <Container size={1000} >
       <Group position="center" my="xl">
         <UnstyledButton
           aria-label="Toggle theme"

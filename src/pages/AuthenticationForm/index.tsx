@@ -11,7 +11,6 @@ import {
   Anchor,
   Divider,
   Container,
-  LoadingOverlay,
 } from "@mantine/core";
 
 import { LightDarkButton } from "../../components/LightDarkButton";
@@ -55,7 +54,7 @@ export function AuthenticationForm(props: PaperProps) {
   function handleSubmit() {
     try {
       { type === "Register" && SignUp(dataSignUp) }
-      navigate("/");
+      navigate("/home");
 
     } catch (error) {
       
