@@ -8,11 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@mantine/core": "^5.0.2",
-    "@mantine/ds": "^5.2.7",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mantine/core": "^5.3.0",
     "@mantine/form": "^5.0.2",
-    "@mantine/hooks": "^5.0.2",
+    "@mantine/hooks": "^5.3.0",
     "@mantine/notifications": "^5.2.4",
     "dotenv": "^16.0.1",
     "esbuild-windows-64": "^0.14.49",

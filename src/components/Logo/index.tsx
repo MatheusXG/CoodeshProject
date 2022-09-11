@@ -1,18 +1,10 @@
-import { Title } from '@mantine/core';
-import { MdLocalPharmacy } from "react-icons/bs";
+import styled from '@emotion/styled';
 
-import { ActionIcon } from '@mantine/core';
+const StyledComponent = styled.div`
+ 
+`
+  
 
 export function Logo() {
-  return (
-    <>
-      <ActionIcon>
-        <MdLocalPharmacy size={18} />
-      </ActionIcon>
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAABVlJREFUaEPdmmmorVMYx3/XnJLM4yUzXTPJGMmU+IBEMhPKlBClEFHm+YMpRFzzByISmWUOoWseM49FZv22Z12rdfc+73rfs3fb8dTpnL3XWs96/ms98zrTGEwzgAUmGG8a+gZ4r2nSZMenDWCwB3DHJJn/BawMvD9JPhMuHwTgMOBK4KxYfQpwE/B4fN4K2DfGP4zv/Oz3h8dvP28MvDBOAAogPR+CXRWfE8BcQAH7vYfSb3wkOJpuYMoDmLIqNOWNWH3Vjd4eirtfCwXWXu4Gjh+nG03yKoyUbKEGh+5TY9cbjZwGGfH/BsCrwC8dbuAG4MCRH3/47H77LAxcC2jMtwJ7txDmrYjA5wCnAr+3WNt6aj8V2jCEXhW4MXT55xacFwe8gZ2BZ4G9RplOlACMoJeG2vi3p9+F5HsMcB7wPXAAcF8XRk1rEoD549Q8LT2Pv99tWlwxbm50C7AMcDpwZsWaVlMSAE/96Ejgjo0baMVogslLADOBbYH9Qy2HxbuXeC0EfAE8AewA6MeHTe7xOvAVsMEwmQtgHeAV4Djg4mEyL3iZju8JqK5DIwFsFHpvrv/G0DjPyUh7WGsC191p6xxAJwYdFjVF/1YscwDmLqlgacWkcnJe8FQuaZ42bgDuvxmwOvAJ8Cjwa7PY/84YJ4ClIvbsmAlsF8P05aVaEF0AXAOsn22gjz+/YsNchdz3fmA74GzgQWDdaBJ8C6wH/FjBsxcHkheqtQHjhP78g/Aqeq6aeiEHsDnwJHAzcGEmqPnTGRFULx8lgFSwtCl4cgDmRtdPIOBlkUs1Yqi5gXniVBYLbiZ5OYAVgbtizIB4xYBdcwBG/AeAe4B7s/mq0ZHAyYDpeCPVADD0v5hx+jNOR0G1h0OKsbkrAMwHvAksAhyU2YBp+JLA2uGVZOX+awIfA08Bf+T8awDU2kiTny/HFexOYKVMoO8i4fNmzGAFtH02/lqMz/ZSbQCk1qI34LV/Fp2LLWKD1FocFGn7ATTJ0x7WiBN2D+OBwj8MWFRp5Kqbns8K76dwHtYZVV7IE3qnyGFMv027zWATAPl9DViR9aOmG0prcuH3yVo7ju8et3YwcF0tAOcJYtHYQc+TG/GCQOobfRSpeVcACv8IsApQCi9Pb+yHiDsntgGQC2QcsHFl29Ga2SttGwf6AUzCq06zT7iYmOKHxVcvTtTYQLmZBX7+8GFA2rLR3/3Trk/d63J6UpvVgLmAZ4Cd4rTTXFVTu3COaXnv3aELgK3D6BJj7cBqq4kGASjVZlngogKEwj8UxZdGr7H3qAuAJkEHjfcDYL1sIVXqvA4igdC7GSitHA9NxvtfAWDzWM9i4yw1kpNsCYSNMYPjHMKXN5A/IXU95YnWlXFi3sg43VfhSlJtDFiqVF/hSwCjELofzxToFMyg5UkbV3LKdd5UZWDil9uAblH3OCryoXC3LCC695fA08Cu2aal8KYTGq7NNuPAc8AFEbnHbsR2604LwzSy6pGsB3SVnrzC2960HWOU98cx36CNCbPG7YU0Tk/zqDBUL0Ihj4h3alv0ArsEMPL+Fk+49llf9u9xA0iaY31sV9w0QcM1ukuWndbM2oDCJ7JNaaI3XQC+hZmmngScOyoDAG4DdgHMnWqpTBbLdTMEYHHxOeCL+yZDbuymDacDvvZYGHl6tWQw00ttAzwWi0xjNPwVgKWTS3OSfVE30S9bWAyLloscyJJ006K6a9pD4Oq6MeNq4NP4Fwdrg17ClxcffuGDREqbm5i3Gbffo6F2eeQwO/W5K9UdeqAT8nogF0R10k1N5t9sSmAa5ttDaNsvD/h2Nys36L8BzR9fi+beOzEAAAAASUVORK5CYII=" alt="" />
-        <Title order={2} style={{color: 'white'}}>Pharma Inc</Title>
-    
-    </>
-    
-  );
+  return <StyledComponent />;
 }

@@ -15,10 +15,10 @@ import {
   Logout,
   ChevronDown,
 } from "tabler-icons-react";
-import { MantineLogo } from "@mantine/ds";
+// import { MantineLogo } from "@mantine/ds";
 import { Skeleton } from "@mantine/core";
 import { LightDarkButton } from "../LightDarkButton";
-import { Logo } from "../Logo";
+// import { Logo } from "../Logo";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -108,18 +108,11 @@ export function Header({ user, tabs }: HeaderTabsProps) {
   const [userMenuOpened, setUserMenuOpened] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // const items = tabs.map((tab) => (
-  //   <Tabs.Tab value={tab} key={tab}>
-  //     {tab}
-  //   </Tabs.Tab>
-  // ));
-
   return (
     <div className={classes.header}>
       <Container className={classes.mainSection} fluid px={80}>
         <Group position="apart">
           {/* <MantineLogo size={35} /> */}
-          <Logo />
         
           <Burger
             opened={opened}
@@ -173,19 +166,7 @@ export function Header({ user, tabs }: HeaderTabsProps) {
         </Group>
       </Container>
 
-      {/* <Container style={{display: 'flex', justifyContent: 'center'}} >
-          <Tabs
-            defaultValue="Home"
-            variant="outline"
-            classNames={{
-              root: classes.tabs,
-              tabsList: classes.tabsList,
-              tab: classes.tab,
-            }}
-          >
-            <Tabs.List>{items}</Tabs.List>
-          </Tabs>
-        </Container> */}
+    
     </div>
   );
 }
