@@ -15,7 +15,6 @@ import {
   Logout,
   ChevronDown,
 } from "tabler-icons-react";
-// import { MantineLogo } from "@mantine/ds";
 import { Skeleton } from "@mantine/core";
 import { LightDarkButton } from "../LightDarkButton";
 // import { Logo } from "../Logo";

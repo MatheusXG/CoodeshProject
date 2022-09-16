@@ -11,18 +11,19 @@ import {
   Anchor,
   Divider,
   Container,
+  Notification,
+  Alert,
 } from "@mantine/core";
 
+import { AlertCircle, Check, X } from "tabler-icons-react";
+
 import { LightDarkButton } from "../../components/LightDarkButton";
-
-import { AuthContext } from "../../contexts/AuthContext";
-import { useContext, useState } from "react";
-
 import { GoogleButton } from "../../components/SocialButtons/SocialButtons";
 
-import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
+import { useContext } from "react";
 
-
+import { useNavigate } from "react-router-dom";
 
 export function AuthenticationForm(props: PaperProps) {
   const [type, toggle] = useToggle(["Login", "Register"]);
@@ -47,28 +48,43 @@ export function AuthenticationForm(props: PaperProps) {
     password: form.values.password,
   };
 
-  const { SignUp, isLoading } = useContext(AuthContext);
+  const { SignUp, isLoading, error } = useContext(AuthContext);
   let navigate = useNavigate();
 
-
   function handleSubmit() {
-    try {
-      { type === "Register" && SignUp(dataSignUp) }
-      navigate("/home");
-
-    } catch (error) {
-      
+    if (type === "Register") {
+      SignUp(dataSignUp);
+      // navigate("/home");
     }
-
-    
   }
 
   return (
     <>
       <Container size={450} my={100}>
-      
+        {error && (
+          // <Notification
+          //   icon={<X size={20} />}
+          //   color="red"
+          //   title="We notify you that"
+          // >
+          //   {error.err.errorMessage}
+          // </Notification>
+          <Alert
+            title="Error"
+            icon={<AlertCircle size={16} />}
+            color="red"
+            radius="xs"
+            withCloseButton
+            closeButtonLabel="Close alert"
+          >
+            {error.err.errorMessage}
+          </Alert>
+        )}
 
         <Paper withBorder shadow="md" p={30} mt={30} radius="md" {...props}>
+          {/* <Button variant="outline" color="red" onClick={cleanNotifications}>
+            Clean all
+          </Button> */}
           <LightDarkButton />
 
           <form onSubmit={form.onSubmit(handleSubmit)}>

@@ -8,11 +8,21 @@ type SignUpCredentials = {
   password: string;
 };
 
+
+type Error = {
+  err: {
+    errorMessage: string;
+    errorCode: string;
+  }
+}
+
 type AuthContextData = {
   SignUp(credentials: SignUpCredentials): Promise<void>;
   isLoading: boolean;
+  error: Error;
 
 };
+
 
 type AuthProvider = {
   children: ReactNode;
@@ -22,7 +32,8 @@ export const AuthContext = createContext({} as AuthContextData);
 
 export function AuthProvider(props: AuthProvider) {
   const [isLoading, setIsLoading] = useState(false);
-  const [user, setUser] = useState();
+  const [error, setError ] = useState<Error>({err: {errorMessage: '', errorCode: ''}})
+
 
 
   async function SignUp(dataSignUp: SignUpCredentials) {
@@ -40,14 +51,18 @@ export function AuthProvider(props: AuthProvider) {
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        
+        setError({err: {
+          errorMessage: error.message,
+          errorCode: error.code
+        }})
+        
         // ..
       });
   }
 
   return (
-    <AuthContext.Provider value={{ SignUp, isLoading }}>
+    <AuthContext.Provider value={{ SignUp, isLoading, error }}>
       {props.children}
     </AuthContext.Provider>
   );
